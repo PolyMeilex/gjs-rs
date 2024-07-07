@@ -1,0 +1,663 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="Gjs" version="1.0" shared-library="libgjs.so.0" c:identifier-prefixes="Gjs" c:symbol-prefixes="gjs_">
+    <function-macro name="CONTEXT_CLASS" c:identifier="GJS_CONTEXT_CLASS" introspectable="0">
+      <source-position filename="gjs/context.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONTEXT_GET_CLASS" c:identifier="GJS_CONTEXT_GET_CLASS" introspectable="0">
+      <source-position filename="gjs/context.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Context" c:symbol-prefix="context" c:type="GjsContext" parent="GObject.Object" glib:type-name="GjsContext" glib:get-type="gjs_context_get_type" glib:type-struct="ContextClass">
+      <source-position filename="gjs/context.h" line="32"/>
+      <constructor name="new" c:identifier="gjs_context_new">
+        <source-position filename="gjs/context.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <type name="Context" c:type="GjsContext*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_search_path" c:identifier="gjs_context_new_with_search_path">
+        <source-position filename="gjs/context.h" line="44"/>
+        <return-value transfer-ownership="full">
+          <type name="Context" c:type="GjsContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="search_path" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="866">Path where modules to import should reside</doc>
+            <array zero-terminated="0" c:type="char**">
+              <type name="utf8" c:type="char*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_all" c:identifier="gjs_context_get_all">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1330">Returns a newly-allocated list containing all known instances of #GjsContext.
+This is useful for operating on the contexts from a process-global situation
+such as a debugger.</doc>
+        <source-position filename="gjs/context.h" line="74"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve" filename="gjs/context.cpp" line="1337">Known #GjsContext instances</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Context"/>
+          </type>
+        </return-value>
+      </function>
+      <function name="get_current" c:identifier="gjs_context_get_current" introspectable="0">
+        <source-position filename="gjs/context.h" line="76"/>
+        <return-value>
+          <type name="Context" c:type="GjsContext*"/>
+        </return-value>
+      </function>
+      <method name="define_string_array" c:identifier="gjs_context_define_string_array" throws="1">
+        <source-position filename="gjs/context.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="array_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="array_length" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+          <parameter name="array_values" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1810">Array values</doc>
+            <array length="1" zero-terminated="0" c:type="const char**">
+              <type name="utf8" c:type="char*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="eval" c:identifier="gjs_context_eval" throws="1">
+        <source-position filename="gjs/context.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="script" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="script_len" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="exit_status_p" direction="out" caller-allocates="0" transfer-ownership="full">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1368">exit status</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="eval_file" c:identifier="gjs_context_eval_file" throws="1">
+        <source-position filename="gjs/context.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="exit_status_p" direction="out" caller-allocates="0" transfer-ownership="full">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1682">exit status</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="eval_module" c:identifier="gjs_context_eval_module" throws="1">
+        <source-position filename="gjs/context.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="identifier" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="exit_code" direction="out" caller-allocates="0" transfer-ownership="full">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1390">exit code</doc>
+            <type name="guint8" c:type="uint8_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="eval_module_file" c:identifier="gjs_context_eval_module_file" throws="1">
+        <source-position filename="gjs/context.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="exit_status_p" direction="out" caller-allocates="0" transfer-ownership="full">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1704">exit status</doc>
+            <type name="guint8" c:type="uint8_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="gc" c:identifier="gjs_context_gc">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1316">Initiate a full GC; may or may not block until complete.  This
+function just calls Spidermonkey JS_GC().</doc>
+        <source-position filename="gjs/context.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1318">a #GjsContext</doc>
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_native_context" c:identifier="gjs_context_get_native_context">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1352">Returns a pointer to the underlying native context.  For SpiderMonkey, this
+is a JSContext *</doc>
+        <source-position filename="gjs/context.h" line="81"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="gpointer" c:type="void*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_profiler" c:identifier="gjs_context_get_profiler">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1918">Returns the profiler's internal instance of #GjsProfiler for you to
+customize, or %NULL if profiling is not enabled on this #GjsContext.</doc>
+        <source-position filename="gjs/context.h" line="96"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve" filename="gjs/context.cpp" line="1925">a #GjsProfiler</doc>
+          <type name="Profiler" c:type="GjsProfiler*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1920">the #GjsContext</doc>
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="make_current" c:identifier="gjs_context_make_current">
+        <source-position filename="gjs/context.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="maybe_gc" c:identifier="gjs_context_maybe_gc">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1288">Similar to the Spidermonkey JS_MaybeGC() call which
+heuristically looks at JS runtime memory usage and
+may initiate a garbage collection.
+
+This function always unconditionally invokes JS_MaybeGC(), but
+additionally looks at memory usage from the system malloc()
+when available, and if the delta has grown since the last run
+significantly, also initiates a full JavaScript garbage
+collection.  The idea is that since GJS is a bridge between
+JavaScript and system libraries, and JS objects act as proxies
+for these system memory objects, GJS consumers need a way to
+hint to the runtime that it may be a good idea to try a
+collection.
+
+A good time to call this function is when your application
+transitions to an idle state.</doc>
+        <source-position filename="gjs/context.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1290">a #GjsContext</doc>
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="print_stack_stderr" c:identifier="gjs_context_print_stack_stderr">
+        <source-position filename="gjs/context.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="register_module" c:identifier="gjs_context_register_module" throws="1">
+        <source-position filename="gjs/context.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="identifier" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="run_in_realm" c:identifier="gjs_context_run_in_realm">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1946">Runs @func immediately, not asynchronously, after entering the JS context's
+main realm. After @func completes, leaves the realm again.
+
+You only need this if you are using JSAPI calls from the SpiderMonkey API
+directly.</doc>
+        <source-position filename="gjs/context.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gjs" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="func" transfer-ownership="none" scope="call" closure="1">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1949">function to run</doc>
+            <type name="ContextInRealmFunc" c:type="GjsContextInRealmFunc"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" nullable="1" allow-none="1" closure="0">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1950">pointer to pass to @func</doc>
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_argv" c:identifier="gjs_context_set_argv">
+        <source-position filename="gjs/context.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="js_context" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+          <parameter name="array_length" transfer-ownership="none">
+            <type name="gssize" c:type="ssize_t"/>
+          </parameter>
+          <parameter name="array_values" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/context.cpp" line="1854">Array values</doc>
+            <array length="0" zero-terminated="0" c:type="const char**">
+              <type name="utf8" c:type="char*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_debugger_console" c:identifier="gjs_context_setup_debugger_console">
+        <source-position filename="gjs/context.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gjs" transfer-ownership="none">
+            <type name="Context" c:type="GjsContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="exec-as-module" readable="0" writable="1" construct-only="1" transfer-ownership="none" default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="profiler-enabled" readable="0" writable="1" construct-only="1" transfer-ownership="none" default-value="FALSE">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="289">Set this property to profile any JS code run by this context. By
+default, the profiler is started and stopped when you call
+gjs_context_eval().
+
+The value of this property is superseded by the GJS_ENABLE_PROFILER
+environment variable.
+
+You may only have one context with the profiler enabled at a time.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="profiler-sigusr2" readable="0" writable="1" construct-only="1" transfer-ownership="none" default-value="FALSE">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="308">Set this property to install a SIGUSR2 signal handler that starts and
+stops the profiler. This property also implies that
+#GjsContext:profiler-enabled is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="program-name" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="program-path" writable="1" construct-only="1" transfer-ownership="none" default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="search-path" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+    </class>
+    <record name="ContextClass" c:type="GjsContextClass" glib:is-gtype-struct-for="Context">
+      <source-position filename="gjs/context.h" line="32"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <callback name="ContextInRealmFunc" c:type="GjsContextInRealmFunc">
+      <source-position filename="gjs/context.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arg0" transfer-ownership="none">
+          <type name="Context" c:type="GjsContext*"/>
+        </parameter>
+        <parameter name="arg1" transfer-ownership="none" nullable="1" allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="Coverage" c:symbol-prefix="coverage" c:type="GjsCoverage" parent="GObject.Object" glib:type-name="GjsCoverage" glib:get-type="gjs_coverage_get_type" glib:type-struct="CoverageClass">
+      <source-position filename="gjs/coverage.h" line="26"/>
+      <constructor name="new" c:identifier="gjs_coverage_new">
+        <doc xml:space="preserve" filename="gjs/coverage.cpp" line="450">Creates a new #GjsCoverage object that collects coverage information for
+any scripts run in @context.
+
+Scripts which were provided as part of @prefixes will be written out to
+@output_dir, in the same directory structure relative to the source dir where
+the tests were run.</doc>
+        <source-position filename="gjs/coverage.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve" filename="gjs/coverage.cpp" line="465">A #GjsCoverage object</doc>
+          <type name="Coverage" c:type="GjsCoverage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="prefixes" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/coverage.cpp" line="452">A null-terminated strv of prefixes of files on which to record
+code coverage</doc>
+            <array zero-terminated="0" c:type="const char* const*">
+              <type name="utf8" c:type="char*"/>
+            </array>
+          </parameter>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/coverage.cpp" line="454">A #GjsContext object</doc>
+            <type name="Context" c:type="GjsContext*"/>
+          </parameter>
+          <parameter name="output_dir" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/coverage.cpp" line="455">A #GFile handle to a directory in which to write coverage
+information</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="enable" c:identifier="gjs_coverage_enable" version="1.66">
+        <doc xml:space="preserve" filename="gjs/coverage.cpp" line="482">This function must be called before creating any #GjsContext, if you intend
+to use any #GjsCoverage APIs.</doc>
+        <source-position filename="gjs/coverage.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+      <method name="write_statistics" c:identifier="gjs_coverage_write_statistics">
+        <doc xml:space="preserve" filename="gjs/coverage.cpp" line="258">Scripts which were provided as part of the #GjsCoverage:prefixes
+construction property will be written out to @output_directory, in the same
+directory structure relative to the source dir where the tests were run.
+
+This function takes all available statistics and writes them out to either
+the file provided or to files of the pattern (filename).info in the same
+directory as the scanned files. It will provide coverage data for all files
+ending with ".js" in the coverage directories.</doc>
+        <source-position filename="gjs/coverage.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Coverage" c:type="GjsCoverage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="cache" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="context" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="Context"/>
+      </property>
+      <property name="output-directory" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="prefixes" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+    </class>
+    <record name="CoverageClass" c:type="GjsCoverageClass" glib:is-gtype-struct-for="Coverage">
+      <source-position filename="gjs/coverage.h" line="26"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="Error" c:type="GjsError" glib:error-domain="gjs-error-quark">
+      <source-position filename="gjs/error-types.h" line="28"/>
+      <member name="failed" value="0" c:identifier="GJS_ERROR_FAILED">
+      </member>
+      <member name="system_exit" value="1" c:identifier="GJS_ERROR_SYSTEM_EXIT">
+      </member>
+    </enumeration>
+    <function-macro name="IS_CONTEXT_CLASS" c:identifier="GJS_IS_CONTEXT_CLASS" introspectable="0">
+      <source-position filename="gjs/context.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="JSError" glib:type-name="GjsJSError" glib:get-type="gjs_js_error_get_type" c:type="GjsJSError" glib:error-domain="gjs-js-error-quark">
+      <member name="error" value="0" c:identifier="GJS_JS_ERROR_ERROR" glib:nick="error" glib:name="Error">
+      </member>
+      <member name="eval_error" value="1" c:identifier="GJS_JS_ERROR_EVAL_ERROR" glib:nick="eval-error" glib:name="EvalError">
+      </member>
+      <member name="internal_error" value="2" c:identifier="GJS_JS_ERROR_INTERNAL_ERROR" glib:nick="internal-error" glib:name="InternalError">
+      </member>
+      <member name="range_error" value="3" c:identifier="GJS_JS_ERROR_RANGE_ERROR" glib:nick="range-error" glib:name="RangeError">
+      </member>
+      <member name="reference_error" value="4" c:identifier="GJS_JS_ERROR_REFERENCE_ERROR" glib:nick="reference-error" glib:name="ReferenceError">
+      </member>
+      <member name="stop_iteration" value="5" c:identifier="GJS_JS_ERROR_STOP_ITERATION" glib:nick="stop-iteration" glib:name="StopIteration">
+      </member>
+      <member name="syntax_error" value="6" c:identifier="GJS_JS_ERROR_SYNTAX_ERROR" glib:nick="syntax-error" glib:name="SyntaxError">
+      </member>
+      <member name="type_error" value="7" c:identifier="GJS_JS_ERROR_TYPE_ERROR" glib:nick="type-error" glib:name="TypeError">
+      </member>
+      <member name="uri_error" value="8" c:identifier="GJS_JS_ERROR_URI_ERROR" glib:nick="uri-error" glib:name="URIError">
+      </member>
+      <function name="quark" c:identifier="gjs_js_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <record name="Profiler" c:type="GjsProfiler" disguised="1" opaque="1">
+      <source-position filename="gjs/profiler.h" line="22"/>
+      <method name="set_capture_writer" c:identifier="gjs_profiler_set_capture_writer">
+        <doc xml:space="preserve" filename="gjs/profiler.cpp" line="759">Set the capture writer to which profiling data is written when the @self
+is stopped.</doc>
+        <source-position filename="gjs/profiler.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="761">A #GjsProfiler</doc>
+            <type name="Profiler" c:type="GjsProfiler*"/>
+          </instance-parameter>
+          <parameter name="capture" transfer-ownership="none" nullable="1" allow-none="1">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="762">A #SysprofCaptureWriter</doc>
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fd" c:identifier="gjs_profiler_set_fd">
+        <source-position filename="gjs/profiler.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Profiler" c:type="GjsProfiler*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filename" c:identifier="gjs_profiler_set_filename">
+        <doc xml:space="preserve" filename="gjs/profiler.cpp" line="783">Set the file to which profiling data is written when the @self is stopped.
+By default, this is `gjs-$PID.syscap` in the current directory.</doc>
+        <source-position filename="gjs/profiler.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="785">A #GjsProfiler</doc>
+            <type name="Profiler" c:type="GjsProfiler*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="786">string containing a filename</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="gjs_profiler_start">
+        <doc xml:space="preserve" filename="gjs/profiler.cpp" line="476">As expected, this starts the GjsProfiler.
+
+This will enable the underlying JS profiler and register a POSIX timer to
+deliver SIGPROF on the configured sampling frequency.
+
+To reduce sampling overhead, #GjsProfiler stashes information about the
+profile to be calculated once the profiler has been disabled. Calling
+gjs_profiler_stop() will result in that delayed work to be completed.
+
+You should call gjs_profiler_stop() when the profiler is no longer needed.</doc>
+        <source-position filename="gjs/profiler.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="478">A #GjsProfiler</doc>
+            <type name="Profiler" c:type="GjsProfiler*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="gjs_profiler_stop">
+        <doc xml:space="preserve" filename="gjs/profiler.cpp" line="619">Stops a currently running #GjsProfiler. If the profiler is not running,
+this function will do nothing.
+
+Some work may be delayed until the end of the capture. Such delayed work
+includes flushing the resulting samples and file location information to
+disk.
+
+This may block while writing to disk. Generally, the writes are delivered
+to a tmpfs device, and are therefore negligible.</doc>
+        <source-position filename="gjs/profiler.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="621">A #GjsProfiler</doc>
+            <type name="Profiler" c:type="GjsProfiler*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="chain_signal" c:identifier="gjs_profiler_chain_signal" introspectable="0">
+        <doc xml:space="preserve" filename="gjs/profiler.cpp" line="718">Use this to pass a signal info caught by another signal handler to a
+GjsProfiler. This might be needed if you have your own complex signal
+handling system for which GjsProfiler cannot simply add a SIGUSR2 handler.
+
+This function should only be called from the JS thread.</doc>
+        <source-position filename="gjs/context.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve" filename="gjs/profiler.cpp" line="729">%TRUE if the signal was handled.</doc>
+          <type name="gboolean" c:type="_Bool"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="720">a #GjsContext with a profiler attached</doc>
+            <type name="Context" c:type="GjsContext*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve" filename="gjs/profiler.cpp" line="721">#siginfo_t passed in to signal handler</doc>
+            <type c:type="siginfo_t*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <function name="dumpstack" c:identifier="gjs_dumpstack">
+      <source-position filename="gjs/context.h" line="102"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="error_quark" c:identifier="gjs_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="get_js_version" c:identifier="gjs_get_js_version">
+      <doc xml:space="preserve" filename="gjs/context.cpp" line="1933">Returns the underlying version of the JS engine.</doc>
+      <source-position filename="gjs/context.h" line="104"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve" filename="gjs/context.cpp" line="1938">a string</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="js_error_quark" c:identifier="gjs_js_error_quark" moved-to="JSError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="memory_report" c:identifier="gjs_memory_report">
+      <source-position filename="gjs/mem.h" line="23"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="where" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="die_if_leaks" transfer-ownership="none">
+          <type name="gboolean" c:type="_Bool"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="profiler_get_type" c:identifier="gjs_profiler_get_type">
+      <source-position filename="gjs/profiler.h" line="25"/>
+      <return-value transfer-ownership="none">
+        <type name="GType" c:type="GType"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>
